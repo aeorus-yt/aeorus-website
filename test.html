@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aeorus's Website!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,500;1,700&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+    *::-webkit-scrollbar-track {
+      background: #0059ff40;
+    }
+  
+    *::-webkit-scrollbar-thumb {
+      background-color: #002962;
+      border-right: none;
+      border-left: none;
+    }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background-color: #000000;
+    }
+    hr.footer {
+      border: 2px solid rgb(0, 153, 255);
+      border-radius: 2px;
+    }
+    p.first {
+      margin-bottom: 0;
+    }
+    p.next {
+      margin: 0;
+    }
+    @supports ( -moz-appearance:none ){
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #002962 #0059ff40;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar a:not(:first-child) {display: none;}
+      .navbar a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: block;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      .navbar.responsive {position: fixed;}
+      .navbar.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+      }
+      .navbar a.navcenter {
+        float: none;
+        display: block;
+        text-align: center;
+      }
+    }
+    @media screen and (min-width: 600px) {
+      .navbar a.right {
+        float: right;
+      }
+      .navbar a.left {
+        float: left;
+      }
+      .navbar a.navcenter {
+        float: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .activated {
+      background-color: #004d96;
+    }
+    .navbar {
+      display: none;
+      overflow: hidden;
+      background-color: #333;
+      position: fixed; /* Set the navbar to fixed position */
+      top: 0; /* Position the navbar at the top of the page */
+      width: 100%; /* Full width */
+      z-index: 1;
+    }
+    @keyframes opacity {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    
+    @keyframes bgtransition {
+      from {background-color: rgba(0, 0, 0, 1);}
+      to {background-color: rgba(0, 0, 0, 0.5);}
+    }
+  
+    .navbar a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      box-shadow: inset 0 0 0 0 #ffffff;
+      -webkit-transition: ease-out 0.2s;
+      -moz-transition: ease-out 0.2s;
+      transition: ease-out 0.2s;
+    }
+
+    .navbar .icon {
+      display: none;
+    }
+  
+    .navbar a:hover {
+      background-color: #ddd;
+      box-shadow: inset 0 0 0 0 #ffffff;
+      color: black;
+    }
+    .activated {
+      background-color: #004d96;
+    }
+    .bg2 {
+      display: inline;
+      background-color: #00000080;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      z-index: -2;
+    }
+    .bg {
+      background-image: url("https://i.ibb.co/whD7vJJ/9024835.jpg");
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      z-index: -2;
+    }
+    .bg2 {
+      display: inline;
+      background-color: #00000080;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      z-index: -2;
+    }
+    .buffer {
+      background-color: #00000000;
+      width: 100%;
+      height: 50px;
+      top: 0;
+      left: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      z-index: -2;
+    }
+    .text {
+      color: white;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    }
+    .text a{
+      color: white;
+      text-decoration: none;
+    }
+    .text a:hover{
+      color: white;
+      text-decoration: underline;
+    }
+    .textcenter {
+      text-align: center;
+      max-width: 700px;
+      position: relative;
+      margin:0.5em auto;
+    }
+    .textheader {
+      position: relative;
+      text-align: center;
+      margin: 0;
+    }
+    .banner {
+      background-color: #00408080;
+      width: 100%;
+      height: 50vh;
+      top: 0;
+      display: inline;
+    }
+    .bannered {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+    }
+    .box {
+      display: flex;
+      flex-flow: column;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 75px;
+    }
+    @media screen and (max-width: 1000px) {
+      .foot {   
+        flex-direction: column;
+      }
+      .footer1 {
+        margin: auto;
+      }
+      .footer3 {
+        margin: auto;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      .footer1 {   
+        float: right;
+      }
+      .foot2 {
+        max-width: 300px;
+      }
+      .footer3 {
+        width:100%;
+        float:left;
+      }
+      .textfoot {
+        padding-bottom: 20px;
+      }
+    }
+
+    .foot {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      background-color: #00000080;
+    }
+    .foot1 {
+      -ms-flex: 33%; /* IE10 */
+      flex: 33%;
+      padding: 20px;
+    }
+    .foot2 {
+      -ms-flex: 34%; /* IE10 */
+      flex: 34%;
+      padding: 20px;
+    }
+    .foot3 {
+      -ms-flex: 33%; /* IE10 */
+      flex: 33%;
+      padding: 20px;
+    }
+    .footer1 {
+      max-width: 300px;
+    }
+    .footer2 {
+      max-width: 300px;
+      margin: auto;
+    }
+    .footer3 {
+      max-width: 300px;
+    }
+    .texthead {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      text-align: left;
+      position: relative;
+      color: rgb(192, 192, 192);
+        
+    }
+    .textfoot {
+      text-align: left;
+      position: relative;
+      color: rgb(160, 160, 160);
+    }
+    .textfoot a{
+      color: rgb(160, 160, 160);
+      text-decoration: none;
+    }
+    .textfoot a:hover{
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <div class=box>
+    <div class=bg>
+      <div class=bg2>
+      </div>
+    </div>
+    <div class=banner>
+      <div class="bannered">
+        <h1 class="text textheader size">
+          Aeorus
+        </h1>
+        <h3 class="text textheader">
+          Reaching for the Skies.
+        </h3>
+      </div>
+    </div>
+    <div class=buffer>
+    </div>
+    <h2 class="text textcenter">
+      Welcome to our website!
+    </h2>
+    <div class=buffer>
+    </div>
+    <p class="text textcenter">
+      I'm just your average dude.
+      <br>To be honest, there's nothing special here.
+    </p>
+    <div class=buffer>
+    </div>
+    
+    <!-- Table of Contents -->
+    
+    <h3 class="text textcenter" id="c0">
+      Table of Contents:
+    </h3>
+    <p class="text textcenter">
+      <a href="#c1">Achievements</a>
+      <br><a href="#c2">About Me</a>
+      <br><a href="#c3">Socials</a>
+      <br><a href="#c4">Credits</a>
+    </p>
+    <div class=buffer>
+    </div>
+
+    <!-- Achievements -->
+
+    <h3 class="text textcenter" id="c1">
+      Achievements
+    </h3>
+    <ul class="text textcenter">
+      <li>
+        Coded this website from scratch!
+      </li>
+      <li>
+        Active coder on <em><a href="https://scratch.mit.edu/users/Scratcherz132" target="_blank">Scratch</a></em>
+      </li>
+      <li>
+        Big <strong>YAPPER.</strong>
+      </li>
+    </ul>
+    <p class="text textcenter">
+      These are some of my personal achievments!
+    </p>
+    <div class=buffer>
+    </div>
+
+    <!-- About Me -->
+
+    <h3 class="text textcenter" id="c2">
+      About Me
+    </h3>
+    <ul class="text textcenter">
+      <li>
+        I'm a computer science major.
+      </li>
+      <li>
+        I've had experience in web development, and have made multiple websites in the past.
+      </li>
+      <li>
+        This includes the current website you are looking at, and <em><a href="https://www.nexint.org" target="_blank">Nexint's Website.</a></em>
+      </li>
+      <li>
+        I have created some art as well, although none of it is public.
+      </li>
+      <li>
+        I also have a lot of music on <em><a href="https://www.youtube.com/@Nex_Beats" target="_blank">my Music channel.</a></em>
+      </li>
+      <li>
+        I suck at video games. Excluding <em><a href="https://ch.tetr.io/u/Nexint" target="_blank">Tetr.io</a></em>, I can't play games competitively in any sense.
+      </li>
+    </ul>
+    <div class=buffer>
+    </div>
+
+    <!-- Socials -->
+
+    <h3 class="text textcenter" id="c3">
+      Socials
+    </h3>
+    <ul class="text textcenter">
+      <li>
+        Some of my social media accounts!
+      </li>
+      <li>
+        <em><a href="https://www.youtube.com/@Nexint" target="_blank">YouTube</a></em>
+      </li>
+      <li>
+        <em><a href="https://www.nexint.org" target="_blank">Sister Website.</a></em>
+      </li>
+      <li>
+        <em><a href="https://www.youtube.com/@Nex_Beats" target="_blank">My Music channel.</a></em>
+      </li>
+      <li>
+        <em><a href="https://ch.tetr.io/u/Nexint" target="_blank">
+        My Tetr.io Profile</a></em>
+      </li>
+    </ul>
+    <div class=buffer>
+    </div>
+
+    <!-- Credits -->
+
+    <h3 class="text textcenter" id="c4">
+      Credits:
+    </h3>
+    <ul class="text textcenter">
+      <li>
+        Image by <em><a href="https://www.freepik.com/free-vector/gradient-trendy-background_43114150.htm#query=bright%20background&position=41&from_view=keyword&track=ais_hybrid&uuid=844c96c0-ed8e-4ab7-a821-2c3a50f7541a" target="_blank">Freepik</a></em>
+      </li>
+      <li>
+        Inspired from <em><a href="https://www.nexint.org" target="_blank">Nexint's Website</a></em>
+      </li>
+    </ul>
+    <div class=buffer>
+    </div>
+
+    <!-- Nav Bar -->
+
+    <div class="navbar" id="myTopnav">
+      <a href="#" class="activated navcenter">Home</a>
+      <a href="/Portfolio/" class="left">Portfolio</a>
+      <a href="/About_Me/" class="left">About Me</a>
+      <a href="/Usage_Terms/" class="right">Usage Terms</a>
+      <a href="/Legal/" class="right">Legal</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="foot">
+      <div class="foot1">
+        <div class="footer1">
+          <div class="texthead">
+            <p>
+              aeorus.com
+            </p>
+          </div>
+          <hr class="footer">
+          <div class="textfoot">
+            <p class="footer">
+              All Rights Reserved.
+              <br>Just a small time coder, coding websites for you!
+              <br><br>What am I doing with my life.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="foot2">
+        <div class="footer2">
+          <div class="texthead">
+            <p>
+              Links:
+            </p>
+          </div>
+          <hr class="footer">
+          <div class="textfoot">
+            <a href="/Usage_Terms/">
+              <p class="first">
+                Usage Terms:
+              </p>
+            </a>
+            <a href="/Legal/">
+              <p class="next">
+                Legal:
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="foot3">
+        <div class="footer3">
+          <div class="texthead">
+            <p>
+              Socials:
+            </p>
+          </div>
+          <hr class="footer">
+          <div class="textfoot">
+            <a href="https://www.youtube.com/@nexint">
+              <p class="first">
+                YouTube:
+              </p>
+            </a>
+            <a href="https://x.com/nexints">
+              <p class="next">
+                Twitter:
+              </p>
+            </a>
+            <a href="https://discord.gg/k5mfWReazF">
+              <p class="next">
+                Discord:
+              </p>
+            </a>
+            <a href="mailto:business@nexint.org">
+              <p class="next">
+                E-mail:
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    $(document).scroll(function () {
+      var y = $(this).scrollTop();
+      if (y > 0) {
+          $('.navbar').fadeIn();
+      } else {
+          $('.navbar').fadeOut();
+      }
+    });
+
+    </script>
+    <script>
+      history.scrollRestoration = "manual";
+
+      $(window).on('beforeunload', function(){
+        $(window).scrollTop(0);
+      });
+    </script>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "navbar") {
+          x.className += " responsive";
+        } else {
+          x.className = "navbar";
+        }
+      }
+    </script>
+  </div>
+</body>
+</html>
