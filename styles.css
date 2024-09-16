@@ -203,6 +203,7 @@
     height: 50vh;
     top: 0;
     display: inline;
+    filter: blur(10px);
   }
   .banner2 {
     background-color: #00408080;
@@ -210,6 +211,7 @@
     height: 35vh;
     top: 0;
     display: inline;
+    filter: blur(10px);
   }
   .bannered {
     width: 100%;
