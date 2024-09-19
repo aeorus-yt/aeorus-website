@@ -31,7 +31,7 @@
   @supports ( -moz-appearance:none ){
     * {
       scrollbar-width: thin;
-      scrollbar-color: #002962 #0059ff40;
+      scrollbar-color: #036200 #08ff0040;
     }
   }
 
