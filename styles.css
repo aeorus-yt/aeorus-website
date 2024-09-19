@@ -222,11 +222,11 @@
     flex-flow: column;
     min-height: 100vh;
   }
-  h1 .size {
+  h1.size {
     font-size: 75px;
   }
-  h1 .size2 {
-    font-size: 50px;
+  h1.size2 {
+    font-size: 55px;
   }
   @media screen and (max-width: 1000px) {
     .foot {   
