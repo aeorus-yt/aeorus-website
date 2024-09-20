@@ -40,9 +40,54 @@
       <p class="text textcenter">
         Technology has made a massive impact on society. Everyone nowadays uses some sort of technology for almost any purpose.
         Most objects you see have been made by technology. Technology is everywhere, ubiquitous and seen by all people.
+        These pieces of technology have changed our lives drastically, and have been really helpful to all of us, but at the same time, has caused mass destruction in our civilization.
+        I will see what
       </p>
     <div class=buffer>
-    </div>  
+    </div>
+    <h3 class="text textcenter">
+      Benefits
+    </h3>
+    <p class="text textcenter">
+      Technology has made a massive impact on society. Everyone nowadays uses some sort of technology for almost any purpose.
+      Most objects you see have been made by technology. Technology is everywhere, ubiquitous and seen by all people.
+      These pieces of technology have changed our lives drastically, and have been really helpful to all of us.
+      However, technology isnt all beneficial to us.
+    </p>
+    <div class=buffer>
+    </div> 
+
+    <div class="row">
+      <div class="side">
+        <button type="button" class="titlebars">
+          <h2>Who is Jesus?</h2>
+        </button>
+        <div class="content" style="height:250px;">
+          <p class="desctext">
+            Jesus is fully God, and fully human. Jesus is the second person of the trinity, and was born as a human from Mary.
+            <br>
+            <br>This is not the same as 50% god, and 50% human. To save us of our sins, Christ is 100% human, and 100% god.
+          </p>
+        </div>
+      </div>
+      <div class="main">
+        <button type="button" class="titlebars">
+          <h2>What did Jesus do?</h2>
+        </button>
+        <div class="content" style="height:250px;">
+          <p class="desctext">
+            Back in the old testimate, people had to sacrifice animals for each sin they did. Jesus fulfills this by being the ultimate sacrifice, paying for all of our sins as long as we believe in Jesus.
+            <br>
+            <br>Jesus Christ fulfilled this by dying on the cross, going to hell, and conquering death and ressurecting 3 days later. He showed himself to Mary, the 12 apostles, and then 500 more people (as accounted in the Gospels).
+            <br>
+            <br>If Jesus hadn't come down, we would all be condemmed to hell for eternity, or we would have to sacrifice an animal every year on the Israel temple, and if we couldn't, our sins wouldn't be forgiven. 
+            However, since Jesus has risen from the dead, all of our sins have been forgiven in Christ.
+            <br>
+            <br>Jesus has done a lot more in his lifetime, like starting his own ministry (now the Christian Church), many many miracles, and a lot more. I implore you to read the 4 gospels for yourself, which are linked in our sources.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- Credits -->
 
@@ -152,6 +197,22 @@
       $(window).on('beforeunload', function(){
         $(window).scrollTop(0);
       });
+    </script>
+    <script>
+      var coll = document.getElementsByClassName("titlebars");
+      var i;
+      
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
     </script>
     <script>
       function myFunction() {

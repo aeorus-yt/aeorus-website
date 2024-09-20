@@ -35,6 +35,171 @@
     }
   }
 
+  @media screen and (max-width: 700px) {
+    .row {   
+      flex-direction: column;
+    }
+    .main {
+      padding: 20px;
+      margin: auto;
+      width: 100%;
+    }
+    .side {
+      padding: 20px;
+      margin: auto;
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    .main {
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 40px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .side {
+      margin-left: auto;
+      padding-left: 40px;
+      padding-right: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    background-color:rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    max-width: 600px;
+  }
+  
+  /* Main column */
+  .main {   
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    max-width: 600px;
+  }
+  
+  .centered {   
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
+  }
+
+  .active, .titlebars:hover {
+    background-color: #0043c070;
+    color: black;
+  }
+  .titlebars.active {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: auto;
+    transition: max-height 0.2s ease-in-out;
+    background-color: #00296280;
+    color: white;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  @supports ( -moz-appearance:none ){
+    .content{
+      scrollbar-width: none;
+    }
+  }
+
+  .content::-webkit-scrollbar {
+    width: 10px;
+  }
+  .content::-webkit-scrollbar-track {
+    background: transparent;
+  }
+    
+  .content::-webkit-scrollbar-thumb {
+    background-color: #002962;
+    border-right: none;
+    border-left: none;
+  }
+
+  .content::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 20px;
+}
+
+  .content::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+}
+
+  .content a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    float: center;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    -webkit-transition: ease-out 0.2s;
+    -moz-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+    border-radius: 15px 15px 15px 15px;
+  }
+
+  .content a:hover {
+    background-color: #0059ff40;
+    box-shadow: inset 0 100% 0 0 #0059ff40;
+    color: black;
+  }
+
+  .titlebars {
+    text-align: center;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #00308940;
+    color: white;
+    border: none;
+    outline: none;
+    box-shadow: inset 0 0 0 0 #0059ff40;
+    -webkit-transition: ease-out 0.2s;
+    -moz-transition: ease-out 0.2s;
+    transition: ease-out 0.2s;
+    border-radius: 20px 20px 20px 20px;
+  }
+
+  .desctext {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 7px;
+    margin-top: 15px;
+    margin-right: 5px;
+    line-break: auto;
+    line-height: 22px;
+    color: white;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.75);
+  }
+
   @media screen and (max-width: 600px) {
     .navbar a:not(:first-child) {display: none;}
     .navbar a.icon {
