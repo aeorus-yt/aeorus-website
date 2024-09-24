@@ -472,3 +472,9 @@
   .textfoot a:hover{
     text-decoration: underline;
   }
+  .textheader2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-align: center;
+    font-size:large;
+  }
